@@ -19,19 +19,19 @@
     <meta name="theme-color" content="#68768a">
     
     
-    <meta name="keywords" content="IT技术">
-    <meta name="description" content="利用SSH进入局域网标签： SSH  ###问题描述 ####机器状况 ####目标从C机器使用访问A ####解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -">
-<meta name="keywords" content="IT技术">
+    <meta name="keywords" content="后端">
+    <meta name="description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -fCNR :localhost:22 usr_b@B.">
+<meta name="keywords" content="后端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从外网 SSH 进局域网，反向代理+正向代理解决方案">
-<meta property="og:url" content="https://github.com/LIGITH/SSH/利用SSH进入局域网.html">
+<meta property="og:url" content="https://github.com/LIGITH/SSH/利用SSH进局域网.html">
 <meta property="og:site_name" content="踏步向前">
-<meta property="og:description" content="利用SSH进入局域网标签： SSH  ###问题描述 ####机器状况 ####目标从C机器使用访问A ####解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -">
+<meta property="og:description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -fCNR :localhost:22 usr_b@B.">
 <meta property="og:image" content="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png">
-<meta property="og:updated_time" content="2017-05-28T16:38:33.977Z">
+<meta property="og:updated_time" content="2017-05-28T16:46:50.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从外网 SSH 进局域网，反向代理+正向代理解决方案">
-<meta name="twitter:description" content="利用SSH进入局域网标签： SSH  ###问题描述 ####机器状况 ####目标从C机器使用访问A ####解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -">
+<meta name="twitter:description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -fCNR :localhost:22 usr_b@B.">
 <meta name="twitter:image" content="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png">
     
     <link rel="shortcut icon" href="/favicon.png">
@@ -168,11 +168,11 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#利用SSH进入局域网"><span class="post-toc-number">1.</span> <span class="post-toc-text">利用SSH进入局域网</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">问题描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#机器状况"><span class="post-toc-number">2.</span> <span class="post-toc-text">机器状况</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#目标"><span class="post-toc-number">3.</span> <span class="post-toc-text">目标</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">4.</span> <span class="post-toc-text">解决方案</span></a></li></ol>
         </nav>
     </aside>
     
-<article id="post-利用SSH进入局域网"
+<article id="post-利用SSH进局域网"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -195,12 +195,10 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="利用SSH进入局域网"><a href="#利用SSH进入局域网" class="headerlink" title="利用SSH进入局域网"></a>利用SSH进入局域网</h1><p>标签： SSH</p>
-<hr>
-<p>###问题描述</p>
-<p>####机器状况<br><img src="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png" alt="20170529002529.png-13.8kB"></p>
-<p>####目标<br>从C机器使用访问A</p>
-<p>####解决方案<br>环境需求：<br>每台服务器都需要SSH客户端；<br>A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。</p>
+            <p>标签： SSH</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><h1 id="机器状况"><a href="#机器状况" class="headerlink" title="机器状况"></a>机器状况</h1><p><img src="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png" alt="20170529002529.png-13.8kB"></p>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>从C机器使用访问A</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>环境需求：<br>每台服务器都需要SSH客户端；<br>A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。</p>
 <p>在Ubuntu上的安装过程为：</p>
 <pre><code>sudo apt-get install openssl-server
 </code></pre><p>实施步骤：</p>
@@ -224,7 +222,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-05-28T16:38:33.977Z" itemprop="dateUpdated">2017-05-29 00:38:33</time>
+    最后更新时间：<time datetime="2017-05-28T16:46:50.028Z" itemprop="dateUpdated">2017-05-29 00:46:50</time>
 </span><br>
 
 
@@ -249,7 +247,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IT技术/">IT技术</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
 
 
             
@@ -259,7 +257,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/SSH/利用SSH进局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -269,22 +267,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/SSH/利用SSH进局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/SSH/利用SSH进入局域网.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/SSH/利用SSH进局域网.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&via=https://github.com/LIGITH" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&url=https://github.com/LIGITH/SSH/利用SSH进局域网.html&via=https://github.com/LIGITH" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/SSH/利用SSH进局域网.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -388,7 +386,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/SSH/利用SSH进局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -398,22 +396,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/SSH/利用SSH进局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/SSH/利用SSH进入局域网.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/SSH/利用SSH进局域网.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&via=https://github.com/LIGITH" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&url=https://github.com/LIGITH/SSH/利用SSH进局域网.html&via=https://github.com/LIGITH" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/SSH/利用SSH进局域网.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -424,7 +422,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQW4DIQwF0N7/0u22UkXnf5NUKjxWEZoQ3iwcbPPxEY/Pb2M1vxo/n1/NrL71soGBgfFvGckmfp9fbSKBJetH62BgYFzAWC39+3ZXzyTfmq25nMfAwMCIA2UbZPPPGBgYGLOfmSXAbZjGwMDAyJPYvCiWHxxnaTAGBsZtjDxo/v3nt/Q3MDAw/hXjsxw77P00eLkrDAyMoxl5gEsK+m/ZXH75AwMD41BGGwTzCxZ5+Sx/KcsZDAyMCxh5Apn8wOyYuJXcYmBgXMnIC/ptKT/fbt5+wMDAOJvxvmZAe/R8VfEOAwPjVEZeSmuD4OzJ4bvHwMA4mtEe+HZm2pS4Ld5hYGCczWhD4az9OTsmDpudGBgYRzB2QuHO8a5tfD7sEAMD4xrGzuWtNmi+8c4IBgbGcYyd8DdLWfN16kIeBgbGoYwku80LcPmaebiPEmMMDIwrGe1lrPzYlwTiutmAgYFxNKMttM1K/HmhbfaCMDAwbmDMjm5tAtymr3VqjYGBcTGjbQ8kQbwd0bEVAwPjAkZSdEtCah6UW94DBgMD41DG7GpFcuxLNpS/lIeDIwYGxtGM/WDXNhLaK195YQ4DA+Nsxk6CulP6b693PKTHGBgYFzDaQJkkqHmozf8Hlt/CwMDAiBuTbUlu9oLq/gYGBsZljDbI7lzmKEgYGBgXMNo25Kvan/lB8CHcY2BgHM2YpY7JEm17sr1YhoGBcQHjC7PMIuAcI5gRAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aQXKDMAwF0Nz/0ulMV+20oV8SZIr9vGKAgB8LRbb0eMTj+Tm+Hn8dP+88vpo8+XHFwMDAuC3jeThevayKTN6SPO0lFQMDYwNGL8jmn6D6IfK5YWBgYCT39CaaTB0DAwOjF3CThyb390IzBgbGzow8vauejybxzrU4BgbGDRm9wsB7ji+vb2BgYPx7xrM48iXoPDUszAoDA2NpRrI1Vl2aJsfVwkAUjjEwMBZlJD/It9KqU+whfzmDgYGxNGNSqqy2juWkXljHwMBYlZEvI3ulynk5M1okY2BgbMM4Dna9QHlWSeCP9BEDA2MDxtWvqQblaksHBgbGboyk0aFQVmy1iOVnMDAwdmAcX6i2X1SfM2nOwMDA2IeRP65ZcwjCax5qMTAw9mRUy5bVBDFJNJM0NPoQGBgYizKuK0meVTYod4tgYGAsx6gmZEl6l4fy5FeF5S4GBsYGjOp2/CShjFooelkkBgbGloxeq0Sv8SJPVcsBFwMD47aMycIyD6xJ8jdKNzEwMDZgVANoXh7IA3r1s347g4GBsTQjD3/zl82XrIVdQwwMjIUYz+KobrrlC9dRgxoGBsbSjGqw6yWI86bVk4sHGBgYN2TkQbY39V77V/kTYGBgbMDopXeTBq9J0C9cxsDA2IwxYU9aypI/AAwMDIzqmniyJdcsLWBgYGzAqBYDzm0F6y2bm9ttGBgYN2T0CgNJGO2F7wsxGBgY92N8AAmyQc+xnLmnAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
