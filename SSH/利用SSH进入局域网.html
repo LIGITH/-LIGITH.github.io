@@ -13,26 +13,28 @@
     
     
     
-    <title>Hello World | 踏步向前 | 博客</title>
+    <title>从外网 SSH 进局域网，反向代理+正向代理解决方案 | 踏步向前 | 博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#68768a">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="不求稳定，只为喜欢">
+    <meta name="keywords" content="IT技术">
+    <meta name="description" content="利用SSH进入局域网标签： SSH  ###问题描述 ####机器状况 ####目标从C机器使用访问A ####解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -">
+<meta name="keywords" content="IT技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://github.com/LIGITH/后端/hello-world.html">
+<meta property="og:title" content="从外网 SSH 进局域网，反向代理+正向代理解决方案">
+<meta property="og:url" content="https://github.com/LIGITH/SSH/利用SSH进入局域网.html">
 <meta property="og:site_name" content="踏步向前">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-05-26T13:21:21.643Z">
+<meta property="og:description" content="利用SSH进入局域网标签： SSH  ###问题描述 ####机器状况 ####目标从C机器使用访问A ####解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -">
+<meta property="og:image" content="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png">
+<meta property="og:updated_time" content="2017-05-28T16:38:33.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="从外网 SSH 进局域网，反向代理+正向代理解决方案">
+<meta name="twitter:description" content="利用SSH进入局域网标签： SSH  ###问题描述 ####机器状况 ####目标从C机器使用访问A ####解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -">
+<meta name="twitter:image" content="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png">
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 </head>
@@ -119,7 +121,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Hello World</div>
+        <div class="flex-col header-title ellipsis">从外网 SSH 进局域网，反向代理+正向代理解决方案</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -141,13 +143,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Hello World</h1>
+        <h1 class="title">从外网 SSH 进局域网，反向代理+正向代理解决方案</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-05-26T13:21:21.643Z" itemprop="datePublished" class="page-time">
-  2017-05-26
+                <time datetime="2017-05-28T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-05-29
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SSH/">SSH</a></li></ul>
 
             
         </h5>
@@ -164,19 +168,21 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#利用SSH进入局域网"><span class="post-toc-number">1.</span> <span class="post-toc-text">利用SSH进入局域网</span></a></li></ol>
         </nav>
     </aside>
     
-<article id="post-hello-world"
+<article id="post-利用SSH进入局域网"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Hello World</h1>
+        <h1 class="post-card-title">从外网 SSH 进局域网，反向代理+正向代理解决方案</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-05-26 21:21:21" datetime="2017-05-26T13:21:21.643Z"  itemprop="datePublished">2017-05-26</time>
+            <time class="post-time" title="2017-05-29 00:00:00" datetime="2017-05-28T16:00:00.000Z"  itemprop="datePublished">2017-05-29</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SSH/">SSH</a></li></ul>
+
 
 
             
@@ -189,15 +195,28 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h1 id="利用SSH进入局域网"><a href="#利用SSH进入局域网" class="headerlink" title="利用SSH进入局域网"></a>利用SSH进入局域网</h1><p>标签： SSH</p>
+<hr>
+<p>###问题描述</p>
+<p>####机器状况<br><img src="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png" alt="20170529002529.png-13.8kB"></p>
+<p>####目标<br>从C机器使用访问A</p>
+<p>####解决方案<br>环境需求：<br>每台服务器都需要SSH客户端；<br>A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。</p>
+<p>在Ubuntu上的安装过程为：</p>
+<pre><code>sudo apt-get install openssl-server
+</code></pre><p>实施步骤：</p>
+<ol>
+<li><p>建立A机器到B机器的反向代理【A机器上操作】</p>
+<p> ssh -fCNR <port_b1>:localhost:22 usr_b@B.B.B.B<br>说明：<port_b1> 为 B 机器上端口，用来与 A 机器上的22端口绑定。</port_b1></port_b1></p>
+<p> eg: ssh -fCNR 10001:localhost:22 root@192.168.1.22</p>
+</li>
+<li><p>建立 B 机器上的正向代理，用作本地转发。做这一步是因为绑定后的 端口只支持本地访问【B 机器上操作】</p>
+<p> ssh -fCNL “<em>:<port_b2>:localhost:<port_b1>” localhost<br>说明：&lt; port_b2 &gt; 为本地转发端口，用以和外网通信，并将数据转发到 &lt; port_b1 &gt;，实现可以从其他机器访问。其中的</port_b1></port_b2></em>表示接受来自任意机器的访问。</p>
+<p> eg: ssh -fCNL “*:10007:localhost:10001” localhost</p>
+</li>
+<li><p>现在在 C 机器上可以通过 B 机器 ssh 到 A 机器</p>
+<p> ssh -p <portb2> usra@B.B.B.B<br>参数解释：<br>-f 后台运行<br>-C 允许压缩数据<br>-N 不执行任何命令<br>-R 将端口绑定到远程服务器，反向代理<br>-L 将端口绑定到本地客户端，正向代理</portb2></p>
+</li>
+</ol>
 
         </div>
 
@@ -205,7 +224,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-05-26T13:21:21.643Z" itemprop="dateUpdated">2017-05-26 21:21:21</time>
+    最后更新时间：<time datetime="2017-05-28T16:38:33.977Z" itemprop="dateUpdated">2017-05-29 00:38:33</time>
 </span><br>
 
 
@@ -230,6 +249,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IT技术/">IT技术</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -238,7 +259,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/后端/hello-world.html&title=《Hello World》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -248,22 +269,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/后端/hello-world.html&title=《Hello World》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/后端/hello-world.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/SSH/利用SSH进入局域网.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello World》 — 踏步向前&url=https://github.com/LIGITH/后端/hello-world.html&via=https://github.com/LIGITH" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&via=https://github.com/LIGITH" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/后端/hello-world.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -283,6 +304,19 @@
     </div>
 
     
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/个人情感/我的博客诞生.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">我的博客诞生</h4>
+      </a>
+    </div>
+  
+</nav>
+
 
 
     
@@ -354,7 +388,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/后端/hello-world.html&title=《Hello World》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -364,22 +398,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/后端/hello-world.html&title=《Hello World》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&title=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/后端/hello-world.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/SSH/利用SSH进入局域网.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello World》 — 踏步向前&url=https://github.com/LIGITH/后端/hello-world.html&via=https://github.com/LIGITH" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从外网 SSH 进局域网，反向代理+正向代理解决方案》 — 踏步向前&url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html&via=https://github.com/LIGITH" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/后端/hello-world.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/SSH/利用SSH进入局域网.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -390,7 +424,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aQW7DMAwFUd//0i7QVYFC7nxRTiFqtDKS1NbzgiVFXhde9/da9e3PT35fP9+ttGTIkLEt435coweMrkd3JrDn545+I0OGjHMYz4HymcFDJwmp/AXJkCFDRiW8cmT6smTIkCEjZZCQShK+fw64MmTI2IRBith0W3PJ4uu1uAwZMjZkpI2BT16/2N+QIUPGJow7XPWWwCu7kiFDRmsGT+x4u5FsiB/SBS9IhgwZTRl8wIIXsSTg8gQR3UeGDBnHMNJxrnTwIuUF42gyZMhozagUkwSQJn+vtARkyJCxOSMYZQjTNbKhtAkx3IMMGTIOYKQHYXOF7hstARkyZJzG+MzIBflkWS0uQ4aMFgz+U16sTvZRCyFYhgwZvRl8K/w4vp4mpiFbhgwZvRlpM7LSDOClbzxsIUOGjMMYvDHAm471AQ7EkyFDRlNG/TGktXCVVzBsIUOGjHaMuSSMj1OQo38eatH/DRkyZDRl8MJy7TEZb08G42syZMhox0AdThBSgwRuKg1F/Q0ZMmQcwKgcvaXBlKd6KNGUIUNGa8ZcsCMBmh/JLR4pkyFDRjvGHa60WCXb5Qdqw7+VIUNGa0baROTjF+lW5hoDk71QGTJkbMhIj9LIkdncQR4vj9GwhQwZMtox0rKWx/JVRewfu5IhQ4aMMATzPDQtTYf3lyFDhoywMUnuQEYuZMiQIaNSxKaNAV7ETpbEMmTIaM2Yawzw47bKUMUygAwZMnZlfAEhCoSadVkqfAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQW4DIQwF0N7/0u22UkXnf5NUKjxWEZoQ3iwcbPPxEY/Pb2M1vxo/n1/NrL71soGBgfFvGckmfp9fbSKBJetH62BgYFzAWC39+3ZXzyTfmq25nMfAwMCIA2UbZPPPGBgYGLOfmSXAbZjGwMDAyJPYvCiWHxxnaTAGBsZtjDxo/v3nt/Q3MDAw/hXjsxw77P00eLkrDAyMoxl5gEsK+m/ZXH75AwMD41BGGwTzCxZ5+Sx/KcsZDAyMCxh5Apn8wOyYuJXcYmBgXMnIC/ptKT/fbt5+wMDAOJvxvmZAe/R8VfEOAwPjVEZeSmuD4OzJ4bvHwMA4mtEe+HZm2pS4Ld5hYGCczWhD4az9OTsmDpudGBgYRzB2QuHO8a5tfD7sEAMD4xrGzuWtNmi+8c4IBgbGcYyd8DdLWfN16kIeBgbGoYwku80LcPmaebiPEmMMDIwrGe1lrPzYlwTiutmAgYFxNKMttM1K/HmhbfaCMDAwbmDMjm5tAtymr3VqjYGBcTGjbQ8kQbwd0bEVAwPjAkZSdEtCah6UW94DBgMD41DG7GpFcuxLNpS/lIeDIwYGxtGM/WDXNhLaK195YQ4DA+Nsxk6CulP6b693PKTHGBgYFzDaQJkkqHmozf8Hlt/CwMDAiBuTbUlu9oLq/gYGBsZljDbI7lzmKEgYGBgXMNo25Kvan/lB8CHcY2BgHM2YpY7JEm17sr1YhoGBcQHjC7PMIuAcI5gRAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
