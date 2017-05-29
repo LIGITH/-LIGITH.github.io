@@ -20,18 +20,18 @@
     
     
     <meta name="keywords" content="后端">
-    <meta name="description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -fCNR :localhost:22 usr_b@B.">
+    <meta name="description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：1.建立A机器到B机器的反向代理【A机器上操作】 ssh -fCNR 端口1:localhost:22 usr_b@">
 <meta name="keywords" content="后端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从外网 SSH 进局域网，反向代理+正向代理解决方案">
 <meta property="og:url" content="https://github.com/LIGITH/SSH/利用SSH进局域网.html">
 <meta property="og:site_name" content="踏步向前">
-<meta property="og:description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -fCNR :localhost:22 usr_b@B.">
+<meta property="og:description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：1.建立A机器到B机器的反向代理【A机器上操作】 ssh -fCNR 端口1:localhost:22 usr_b@">
 <meta property="og:image" content="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png">
-<meta property="og:updated_time" content="2017-05-28T16:46:50.028Z">
+<meta property="og:updated_time" content="2017-05-29T02:51:51.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从外网 SSH 进局域网，反向代理+正向代理解决方案">
-<meta name="twitter:description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：  建立A机器到B机器的反向代理【A机器上操作】  ssh -fCNR :localhost:22 usr_b@B.">
+<meta name="twitter:description" content="标签： SSH 问题描述机器状况 目标从C机器使用访问A 解决方案环境需求：每台服务器都需要SSH客户端；A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。 在Ubuntu上的安装过程为： sudo apt-get install openssl-server 实施步骤：1.建立A机器到B机器的反向代理【A机器上操作】 ssh -fCNR 端口1:localhost:22 usr_b@">
 <meta name="twitter:image" content="http://static.zybuluo.com/lizhui/nwokvrpqqk6962f0gd7nhxhy/20170529002529.png">
     
     <link rel="shortcut icon" href="/favicon.png">
@@ -201,20 +201,17 @@
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>环境需求：<br>每台服务器都需要SSH客户端；<br>A、B两台机器需要SSH服务器端。通常使用的是OpenSHH。</p>
 <p>在Ubuntu上的安装过程为：</p>
 <pre><code>sudo apt-get install openssl-server
-</code></pre><p>实施步骤：</p>
-<ol>
-<li><p>建立A机器到B机器的反向代理【A机器上操作】</p>
-<p> ssh -fCNR <port_b1>:localhost:22 usr_b@B.B.B.B<br>说明：<port_b1> 为 B 机器上端口，用来与 A 机器上的22端口绑定。</port_b1></port_b1></p>
-<p> eg: ssh -fCNR 10001:localhost:22 root@192.168.1.22</p>
-</li>
-<li><p>建立 B 机器上的正向代理，用作本地转发。做这一步是因为绑定后的 端口只支持本地访问【B 机器上操作】</p>
-<p> ssh -fCNL “<em>:<port_b2>:localhost:<port_b1>” localhost<br>说明：&lt; port_b2 &gt; 为本地转发端口，用以和外网通信，并将数据转发到 &lt; port_b1 &gt;，实现可以从其他机器访问。其中的</port_b1></port_b2></em>表示接受来自任意机器的访问。</p>
-<p> eg: ssh -fCNL “*:10007:localhost:10001” localhost</p>
-</li>
-<li><p>现在在 C 机器上可以通过 B 机器 ssh 到 A 机器</p>
-<p> ssh -p <portb2> usra@B.B.B.B<br>参数解释：<br>-f 后台运行<br>-C 允许压缩数据<br>-N 不执行任何命令<br>-R 将端口绑定到远程服务器，反向代理<br>-L 将端口绑定到本地客户端，正向代理</portb2></p>
-</li>
-</ol>
+</code></pre><p>实施步骤：<br>1.建立A机器到B机器的反向代理【A机器上操作】</p>
+<pre><code>ssh -fCNR 端口1:localhost:22 usr_b@B.B.B.B
+</code></pre><p>说明：端口1 为 B 机器上端口，用来与 A 机器上的22端口绑定。</p>
+<pre><code>eg: ssh -fCNR 10001:localhost:22 root@192.168.1.22
+</code></pre><p>2.建立 B 机器上的正向代理，用作本地转发。做这一步是因为绑定后的 端口只支持本地访问【B 机器上操作】</p>
+<pre><code>ssh -fCNL &quot;*:端口2:localhost:端口1” localhost
+</code></pre><p>说明：端口2为本地转发端口，用以和外网通信，并将数据转发到端口1，实现可以从其他机器访问。其中的*表示接受来自任意机器的访问。</p>
+<pre><code>eg: ssh -fCNL &quot;*:10007:localhost:10001&quot; localhost
+</code></pre><p>3.现在在 C 机器上可以通过 B 机器 ssh 到 A 机器</p>
+<pre><code>ssh -p 端口2 usra@B.B.B.B
+</code></pre><p>参数解释：<br>-f 后台运行<br>-C 允许压缩数据<br>-N 不执行任何命令<br>-R 将端口绑定到远程服务器，反向代理<br>-L 将端口绑定到本地客户端，正向代理</p>
 
         </div>
 
@@ -222,7 +219,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-05-28T16:46:50.028Z" itemprop="dateUpdated">2017-05-29 00:46:50</time>
+    最后更新时间：<time datetime="2017-05-29T02:51:51.946Z" itemprop="dateUpdated">2017-05-29 10:51:51</time>
 </span><br>
 
 
