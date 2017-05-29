@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://lizhhub.com//Linux/迈入Linux的世界（一）.html">
+    
+    
+    <title>迈入Linux的世界（一） | 踏步向前 | 博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#68768a">
+    
+    
+    <meta name="keywords" content="后端">
+    <meta name="description" content="Linux简介标签： Linux  Linux和Unix平时常常听到你会Linux吗？Unix呢？一直不明白他们之间的区别。只是知道他们名字很像，一些命令是可以共通的。后面知道了linux是免费的，unix是收费，是收费的自然会更稳定、更可靠些，毕竟是有商业公司支持的。其实它们的本质上并不是同一个东西。 最简单的说法就是Linux是一个类Unix内核。说到内核，这里可以解释下，它就是一个电脑程序，">
+<meta name="keywords" content="后端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="迈入Linux的世界（一）">
+<meta property="og:url" content="https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html">
+<meta property="og:site_name" content="踏步向前">
+<meta property="og:description" content="Linux简介标签： Linux  Linux和Unix平时常常听到你会Linux吗？Unix呢？一直不明白他们之间的区别。只是知道他们名字很像，一些命令是可以共通的。后面知道了linux是免费的，unix是收费，是收费的自然会更稳定、更可靠些，毕竟是有商业公司支持的。其实它们的本质上并不是同一个东西。 最简单的说法就是Linux是一个类Unix内核。说到内核，这里可以解释下，它就是一个电脑程序，">
+<meta property="og:updated_time" content="2017-05-29T10:14:19.790Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="迈入Linux的世界（一）">
+<meta name="twitter:description" content="Linux简介标签： Linux  Linux和Unix平时常常听到你会Linux吗？Unix呢？一直不明白他们之间的区别。只是知道他们名字很像，一些命令是可以共通的。后面知道了linux是免费的，unix是收费，是收费的自然会更稳定、更可靠些，毕竟是有商业公司支持的。其实它们的本质上并不是同一个东西。 最简单的说法就是Linux是一个类Unix内核。说到内核，这里可以解释下，它就是一个电脑程序，">
+    
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">踏步向前</h5>
+          <a href="mailto:946455892@qq.com" title="946455892@qq.com" class="mail">946455892@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/links"  >
+                <i class="icon icon-lg icon-link"></i>
+                伙伴
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2986799077?refer_flag=1001030101_" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/LIGITH" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                GitHub
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">迈入Linux的世界（一）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">迈入Linux的世界（一）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-28T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-05-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux和Unix"><span class="post-toc-number">2.</span> <span class="post-toc-text">Linux和Unix</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS7"><span class="post-toc-number">3.</span> <span class="post-toc-text">CentOS7</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#以太网络的配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">以太网络的配置</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-迈入Linux的世界（一）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">迈入Linux的世界（一）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-29 00:00:00" datetime="2017-05-28T16:00:00.000Z"  itemprop="datePublished">2017-05-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h1><p>标签： Linux</p>
+<hr>
+<h1 id="Linux和Unix"><a href="#Linux和Unix" class="headerlink" title="Linux和Unix"></a>Linux和Unix</h1><p>平时常常听到你会Linux吗？Unix呢？一直不明白他们之间的区别。只是知道他们名字很像，一些命令是可以共通的。后面知道了linux是免费的，unix是收费，是收费的自然会更稳定、更可靠些，毕竟是有商业公司支持的。其实它们的本质上并不是同一个东西。</p>
+<p>最简单的说法就是Linux是一个类Unix内核。说到内核，这里可以解释下，它就是一个电脑程序，用于处理其它软件发出的输入输出的要求，将要求转换为数据处理的指令。那么为什么说Linux是一个类Unix内核呢？是因为linux是由李纳斯.特沃兹以安德鲁.S.塔尼鲍默(Andrew S Tanenbum)按照Unix系统的标准POSIX来开发的。同一个标准，自然是一类东西了。</p>
+<p>这里要注意的是linux和unix的命令是区分大小写的。</p>
+<h1 id="CentOS7"><a href="#CentOS7" class="headerlink" title="CentOS7"></a>CentOS7</h1><h1 id="以太网络的配置"><a href="#以太网络的配置" class="headerlink" title="以太网络的配置"></a>以太网络的配置</h1><p>而我最先接触的一个linux系统是CentOS7，当时是怀揣着好奇心探索着linux的世界。从安装到使用都是自己一步一步的去验证，坑是要走过，才知道为何原来如此。</p>
+<p>安装的是CentOS7的mini版，安装过程就略了，嘿嘿，这让我想到了高中看数学答案的时候最不喜欢看到的就是答案：（略）。</p>
+<p>安装之后linux是没有网络的，这让初学者很是蛋疼，百度嘛，会用到</p>
+<pre><code>[root@centos1 ~]#ifconfig
+</code></pre><p>结果很可能显示：</p>
+<pre><code>-bash: ifconfig: command not found
+</code></pre><p>很正常，毕竟是mini版的，很多package（软件包）是没有的，也就没有这个命令，linux存放外部命令的路径在：</p>
+<pre><code>/usr/sbin
+</code></pre><p>可以使用ls命令查看：</p>
+<pre><code>ls /usr/sbin/
+</code></pre><p>那我们不用ifconfig这个命令，我们用什么呢，不急我们可以查看命令啊，查看后可以用什么呢，我们可以看到可以用ip这个命令</p>
+<pre><code>ip [选项] 操作对象{link|addr|route...}
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ip link show                # 显示网络接口信息</span></div><div class="line"><span class="comment"># ip link set eth0 upi           # 开启网卡</span></div><div class="line"><span class="comment"># ip link set eth0 down          # 关闭网卡</span></div><div class="line"><span class="comment"># ip link set eth0 promisc on      # 开启网卡的混合模式</span></div><div class="line"><span class="comment"># ip link set eth0 promisc offi     # 关闭网卡的混个模式</span></div><div class="line"><span class="comment"># ip link set eth0 txqueuelen 1200   # 设置网卡队列长度</span></div><div class="line"><span class="comment"># ip link set eth0 mtu 1400        # 设置网卡最大传输单元</span></div><div class="line"><span class="comment"># ip addr show                # 显示网卡IP信息</span></div><div class="line"><span class="comment"># ip addr add 192.168.0.1/24 dev eth0 # 设置eth0网卡IP地址192.168.0.1</span></div><div class="line"><span class="comment"># ip addr del 192.168.0.1/24 dev eth0 # 删除eth0网卡IP地址</span></div><div class="line"></div><div class="line"><span class="comment"># ip route list                 # 查看路由信息</span></div><div class="line"><span class="comment"># ip route add 192.168.4.0/24  via  192.168.0.254 dev eth0 # 设置192.168.4.0网段的网关为192.168.0.254,数据走eth0接口</span></div><div class="line"><span class="comment"># ip route add default via  192.168.0.254  dev eth0    # 设置默认网关为192.168.0.254</span></div><div class="line"><span class="comment"># ip route del 192.168.4.0/24      # 删除192.168.4.0网段的网关</span></div><div class="line"><span class="comment"># ip route del default          # 删除默认路由</span></div></pre></td></tr></table></figure>
+<p>输入ip addr试试：</p>
+<pre><code>[root@centos1 ~]#ip addr
+</code></pre><p>可以观察到enp2s0这块网卡（这是我的网卡）没有ip地址。<br>既然没有ip地址，那直接去/etc/sysconfig/network-scripts目录中看一下网卡的配置文件吧</p>
+<pre><code>[root@centos1 ~]#ls /etc/sysconfig/network-scripts/
+</code></pre><p>我们可以看到ifcfg-enp2s0这个网卡的配置文件，我们接着查看ifcfg-enp2s0配置信息，使用cat命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[root@centos1 ~]<span class="comment">#cat /etc/sysconfig/network-scripts/ifcfg-enp2s0</span></div><div class="line">HWADDR=00:E0:69:01:6A:96</div><div class="line">TYPE=Ethernet</div><div class="line">BOOTPROTO=dhcp</div><div class="line">DEFROUTE=yes</div><div class="line">PEERDNS=yes</div><div class="line">PEERROUTES=yes</div><div class="line">IPV4_FAILURE_FATAL=no</div><div class="line">IPV6INIT=yes</div><div class="line">IPV6_AUTOCONF=yes</div><div class="line">IPV6_DEFROUTE=yes</div><div class="line">IPV6_PEERDNS=yes</div><div class="line">IPV6_PEERROUTES=yes</div><div class="line">IPV6_FAILURE_FATAL=no</div><div class="line">NAME=enp2s0</div><div class="line">UUID=5b0a7d76-1602-4e19-aee6-29f57618ca01</div><div class="line">ONBOOT=no</div></pre></td></tr></table></figure></p>
+<p>从上面的配置中我们可以看到虽然BOOTPROTO=dhcp，但是ONBOOT=no，这里用vi将ONBOOT=no改成ONBOOT=yes之后，让其自动获取ip,然后再重启CentOS系统。重启命令：</p>
+<pre><code>[root@centos1 ~]#shutdown -r
+</code></pre><p>重启之后再使用 ip addr查看，是不是获取到ip地址了呢。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-29T10:14:19.790Z" itemprop="dateUpdated">2017-05-29 18:14:19</time>
+</span><br>
+
+
+        
+        一个人，一辈子最重要的事，其实是选对身边的人。
+        
+    </div>
+    <footer>
+        <a href="https://github.com/LIGITH">
+            <img src="/img/avatar.png" alt="踏步向前">
+            踏步向前
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html&title=《迈入Linux的世界（一）》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html&title=《迈入Linux的世界（一）》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《迈入Linux的世界（一）》 — 踏步向前&url=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html&via=https://github.com/LIGITH" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/个人情感/我的博客诞生.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">我的博客诞生</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/Hello-World/hello-world.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html',
+        sourceId: '迈入Linux的世界（一）',
+        productKey: '0aa50c1a72bb4b34b572756c4c2fa981',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷赏赐O(∩_∩)O~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            <span>@lizhui</span>
+        </p>
+    </div> 
+    <div class="bottom">
+        <p>
+            <span>踏步向前 &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html&title=《迈入Linux的世界（一）》 — 踏步向前&pic=https://github.com/LIGITH/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html&title=《迈入Linux的世界（一）》 — 踏步向前&source=亲爱的，世界上只有你" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《迈入Linux的世界（一）》 — 踏步向前&url=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html&via=https://github.com/LIGITH" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpElEQVR42u3a0U7DMAwF0P3/T49XJFh3bcdlSKdPE5Q2J0ixd5PHI76eP66fP8/vrF7fn/DYuPDw8PDGQ68O7hr2aiKuBz0fDx4eHt4279ULrj/ndybLfT41yZjx8PDwPoeX9K7JsF4u5fGT8fDw8P4Lr/o5eXJvavDw8PD+lpdHqHlLnU9WMh3rWQseHh5ezMt3kT7n88r+Hh4eHt54V7234FaX+Hx7rDxaPDw8vAXeJKK9bq/nYW5vivHw8PDu4VWDieSvJocMJhtgb36Lh4eHd5R3qoGeFI/qQl+IJ/Dw8PCWefnBglOvv35abysODw8Pb4OXhKT5gl49aJWXmV75wcPDw9vgVYOAjWNYyXHV/B48PDy8bV4eAeTbVL0ooddSvxkJHh4e3gKvGsvmR53OTk0yTVFzj4eHhzfm5a/sLfrV7bRJOSn8r/Dw8PDGvMlyn0euk3KSRxK/FAY8PDy8o7w80s1b7TyEzQvSsWMKeHh4eId4vWJQjW7ngGbKgoeHh3eUl8N6kUHzLEPxaMLLUeHh4eEt8KqPnhSM6qGBeYHBw8PD2+D1Itp5IZnHFtG/BA8PD+8WXg9QDX8nDXFeKvDw8PA2eL2gYd4c561zL2iOvjHg4eHhjXmTI1P5y/JwNmEXttDw8PDwjvImi3v19dVKVX3L4dqFh4eHd8mrbnTlMcEk5J1PJR4eHt42r3coKpmm+QGF3vEsPDw8vLO8Z/HKX5/f02vioyKEh4eHt8DLrx54cufZ4oGHh4d3ljff1qpOzdmfF2JcPDw8vKO8alucN8STIDifvvKv8fDw8G7k5U1znqZWm+ZkzHh4eHifxkuCg1OYaiCCh4eHdw/vbIucUJONrmoU0jwZgYeHh1fkVb/wJ/hqYdgoVHh4eHgLvC/ZGErfB2A+XQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '卧槽！去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
