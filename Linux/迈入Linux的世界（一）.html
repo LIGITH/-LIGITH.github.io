@@ -29,7 +29,7 @@
 <meta property="og:url" content="https://github.com/LIGITH/Linux/迈入Linux的世界（一）.html">
 <meta property="og:site_name" content="踏步向前">
 <meta property="og:description" content="Linux简介标签： Linux  Linux和Unix平时常常听到你会Linux吗？Unix呢？一直不明白他们之间的区别。只是知道他们名字很像，一些命令是可以共通的。后面知道了linux是免费的，unix是收费，是收费的自然会更稳定、更可靠些，毕竟是有商业公司支持的。其实它们的本质上并不是同一个东西。 最简单的说法就是Linux是一个类Unix内核。说到内核，这里可以解释下，它就是一个电脑程序，">
-<meta property="og:updated_time" content="2017-05-29T10:14:19.790Z">
+<meta property="og:updated_time" content="2017-05-30T02:08:24.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="迈入Linux的世界（一）">
 <meta name="twitter:description" content="Linux简介标签： Linux  Linux和Unix平时常常听到你会Linux吗？Unix呢？一直不明白他们之间的区别。只是知道他们名字很像，一些命令是可以共通的。后面知道了linux是免费的，unix是收费，是收费的自然会更稳定、更可靠些，毕竟是有商业公司支持的。其实它们的本质上并不是同一个东西。 最简单的说法就是Linux是一个类Unix内核。说到内核，这里可以解释下，它就是一个电脑程序，">
@@ -168,7 +168,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux和Unix"><span class="post-toc-number">2.</span> <span class="post-toc-text">Linux和Unix</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS7"><span class="post-toc-number">3.</span> <span class="post-toc-text">CentOS7</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#以太网络的配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">以太网络的配置</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Linux简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux和Unix"><span class="post-toc-number">2.</span> <span class="post-toc-text">Linux和Unix</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CentOS7"><span class="post-toc-number">3.</span> <span class="post-toc-text">CentOS7</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#以太网络的配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">以太网络的配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#固定IP地址"><span class="post-toc-number">5.</span> <span class="post-toc-text">固定IP地址</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#连接无线wifi"><span class="post-toc-number">6.</span> <span class="post-toc-text">连接无线wifi</span></a></li></ol>
         </nav>
     </aside>
     
@@ -220,7 +220,34 @@
 </code></pre><p>我们可以看到ifcfg-enp2s0这个网卡的配置文件，我们接着查看ifcfg-enp2s0配置信息，使用cat命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[root@centos1 ~]<span class="comment">#cat /etc/sysconfig/network-scripts/ifcfg-enp2s0</span></div><div class="line">HWADDR=00:E0:69:01:6A:96</div><div class="line">TYPE=Ethernet</div><div class="line">BOOTPROTO=dhcp</div><div class="line">DEFROUTE=yes</div><div class="line">PEERDNS=yes</div><div class="line">PEERROUTES=yes</div><div class="line">IPV4_FAILURE_FATAL=no</div><div class="line">IPV6INIT=yes</div><div class="line">IPV6_AUTOCONF=yes</div><div class="line">IPV6_DEFROUTE=yes</div><div class="line">IPV6_PEERDNS=yes</div><div class="line">IPV6_PEERROUTES=yes</div><div class="line">IPV6_FAILURE_FATAL=no</div><div class="line">NAME=enp2s0</div><div class="line">UUID=5b0a7d76-1602-4e19-aee6-29f57618ca01</div><div class="line">ONBOOT=no</div></pre></td></tr></table></figure></p>
 <p>从上面的配置中我们可以看到虽然BOOTPROTO=dhcp，但是ONBOOT=no，这里用vi将ONBOOT=no改成ONBOOT=yes之后，让其自动获取ip,然后再重启CentOS系统。重启命令：</p>
 <pre><code>[root@centos1 ~]#shutdown -r
-</code></pre><p>重启之后再使用 ip addr查看，是不是获取到ip地址了呢。</p>
+</code></pre><p>重启之后再使用 ip addr查看，是不是获取到ip地址了呢。<br>当然，这里我阴险的笑了，是可以不用重启，我们可以通过重启网络服务来使网卡配置文件生效：</p>
+<pre><code>systemctl restart network
+</code></pre><h1 id="固定IP地址"><a href="#固定IP地址" class="headerlink" title="固定IP地址"></a>固定IP地址</h1><p>固定电脑IP，需要将网卡的配置文件里面的dhcp（动态主机配置协议）注释掉，用#将BOOTPROTO=dhcp注释，并添加一下参数：</p>
+<pre><code>IPADDR0=172.8.1.211
+PREFIX0=24
+GATEWAY0=172.8.1.1
+DNS1=172.8.1.1
+</code></pre><p>设置之后，我们的IP地址就被固定为172.8.1.211这个IP了。PREFIX0指的是子网掩码的位数；GATEWAY0指的是网关。如果你喜欢用ifconfig命令，你可以安装net-tools组件：</p>
+<pre><code>[root@centos1 ~]#yum install net-tools
+</code></pre><h1 id="连接无线wifi"><a href="#连接无线wifi" class="headerlink" title="连接无线wifi"></a>连接无线wifi</h1><p>当然，linux也是可以连接无线的，笔记本通常会用到这样的配置。这需要无线网卡的支持，我们可以通过以下命令查看是否有无线网卡驱动：</p>
+<pre><code>dmesg | grep firmware
+</code></pre><p>如果您得到类似 SIOCSIFFLAGS: No such file or directory 这样的输出，意味着您得手动加载安装驱动；如果没有输出，则表明系统无线网卡已经存在驱动。则可以进行连接无线的配置：<br>1.查看无线网口：</p>
+<pre><code>iw dev
+</code></pre><p>interface后面即为无线网口号<br>2.激活无线网络接口：</p>
+<pre><code>ip link set wls1 up
+</code></pre><p>3.查看接口是否激活：</p>
+<pre><code>ip link show wls1
+</code></pre><p>wls1: <broadcast,multicast,up,lower_up> mtu 1500 qdisc mq state DOWN mode DORMANT group default qlen 1000 link/ether 00:11:22:33:44:55 brd ff:ff:ff:ff:ff:ff<br>&lt; BROADCAST,MULTICAST,UP,LOWER_UP&gt; 中的<strong>UP</strong> 表明该接口激活成功，后面的 state DOWN 无关紧要<br>4.查看无线网络连接情况：</broadcast,multicast,up,lower_up></p>
+<pre><code>iw wls1 link
+</code></pre><p>显示是无连接的<br>5.扫描可连接的wifi</p>
+<pre><code>iw wls1 scan | grep SSID
+</code></pre><p>6.找到你需要的wifi，连接指定的SSID</p>
+<pre><code>wpa_supplicant -B -i wlp3s0 -c &lt;(wpa_passphrase &quot;ssid&quot; &quot;psk&quot;)
+</code></pre><p>将<strong>ssid</strong>替换为实际的网络名称，<strong>psk</strong>替换为无线密码，请保留引号。<br>7.用dhcp获得IP分配：</p>
+<pre><code>dhclient wlp3s0
+</code></pre><p>8.测试是否成功地从路由器获取了ip</p>
+<pre><code>ip addr  show wls1
+</code></pre><p>无线配置至此完成，您可以通过PING命令测试网络是否连接上。</p>
 
         </div>
 
@@ -228,7 +255,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-05-29T10:14:19.790Z" itemprop="dateUpdated">2017-05-29 18:14:19</time>
+    最后更新时间：<time datetime="2017-05-30T02:08:24.210Z" itemprop="dateUpdated">2017-05-30 10:08:24</time>
 </span><br>
 
 
@@ -318,13 +345,6 @@
     </div>
   
 
-  
-    <div class="waves-block waves-effect next">
-      <a href="/Hello-World/hello-world.html" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello World</h4>
-      </a>
-    </div>
   
 </nav>
 
