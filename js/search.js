@@ -1,141 +1,110 @@
-(function () {
-
-    var G = window || this,
-        even = G.BLOG.even,
-        $ = G.BLOG.$,
-        searchIco = $('#search'),
-        searchWrap = $('#search-wrap'),
-        keyInput = $('#key'),
-        back = $('#back'),
-        searchPanel = $('#search-panel'),
-        searchResult = $('#search-result'),
-        searchTpl = $('#search-tpl').innerHTML,
-        JSON_DATA = (G.BLOG.ROOT + '/content.json').replace(/\/{2}/g, '/'),
-        searchData;
-
-    function loadData(success) {
-
-        if (!searchData) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', JSON_DATA, true);
-
-            xhr.onload = function () {
-                if (this.status >= 200 && this.status < 300) {
-                    var res = JSON.parse(this.response);
-                    searchData = res instanceof Array ? res : res.posts;
-                    success(searchData);
-                } else {
-                    console.error(this.statusText);
-                }
-            };
-
-            xhr.onerror = function () {
-                console.error(this.statusText);
-            };
-
-            xhr.send();
-
-        } else {
-            success(searchData);
-        }
-    }
-
-    function tpl(html, data) {
-        return html.replace(/\{\w+\}/g, function (str) {
-            var prop = str.replace(/\{|\}/g, '');
-            return data[prop] || '';
-        });
-    }
-
-    var noop = G.BLOG.noop;
-    var root = $('html');
-
-    var Control = {
-        show: function () {
-            G.innerWidth < 760 ? root.classList.add('lock-size') : noop;
-            searchPanel.classList.add('in');
-        },
-        hide: function () {
-            G.innerWidth < 760 ? root.classList.remove('lock-size') : noop;
-            searchPanel.classList.remove('in');
+$(document).ready(function() {
+    var CONFIG = {
+        root: '/',
+        algolia: {
+            applicationID: 'applicationID',
+            apiKey: 'apiKey',
+            indexName: 'indexName',
+            hits: { "per_page": 10 },
+            labels: { "input_placeholder": "Searching...", "hits_empty": "未发现与 「${query}」相关的内容", "hits_stats": "${hits} 条相关条目，使用了 ${time} 毫秒" }
         }
     };
-
-    function render(data) {
-        var html = '';
-        if (data.length) {
-
-            html = data.map(function (post) {
-
-                return tpl(searchTpl, {
-                    title: post.title,
-                    path: (G.BLOG.ROOT + '/' + post.path).replace(/\/{2}/g, '/'),
-                    date: new Date(post.date).toLocaleDateString(),
-                    tags: post.tags.map(function (tag) {
-                        return '<span>#' + tag.name + '</span>';
-                    }).join('')
-                });
-
-            }).join('');
-
-        } else {
-            html = '<li class="tips"><i class="icon icon-coffee icon-3x"></i><p>Results not found!</p></li>';
-        }
-
-        searchResult.innerHTML = html;
+    var algoliaSettings = CONFIG.algolia;
+    var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
+        algoliaSettings.apiKey &&
+        algoliaSettings.indexName;
+    if (!isAlgoliaSettingsValid) {
+        window.console.error('Algolia Settings are invalid.');
+        return;
     }
-
-    function regtest(raw, regExp) {
-        regExp.lastIndex = 0;
-        return regExp.test(raw);
-    }
-
-    function matcher(post, regExp) {
-        return regtest(post.title, regExp) || post.tags.some(function (tag) {
-            return regtest(tag.name, regExp);
-        }) || regtest(post.text, regExp);
-    }
-
-    function search(e) {
-        var key = this.value.trim();
-        if (!key) {
-            return;
-        }
-
-        var regExp = new RegExp(key.replace(/[ ]/g, '|'), 'gmi');
-
-        loadData(function (data) {
-
-            var result = data.filter(function (post) {
-                return matcher(post, regExp);
-            });
-
-            render(result);
-            Control.show();
-        });
-
-        e.preventDefault();
-    }
-
-
-    searchIco.addEventListener(even, function () {
-        searchWrap.classList.toggle('in');
-        keyInput.value = '';
-        searchWrap.classList.contains('in') ? keyInput.focus() : keyInput.blur();
-    });
-
-    back.addEventListener(even, function () {
-        searchWrap.classList.remove('in');
-        Control.hide();
-    });
-
-    document.addEventListener(even, function (e) {
-        if (e.target.id !== 'key' && even === 'click') {
-            Control.hide();
+    var search = instantsearch({
+        appId: algoliaSettings.applicationID,
+        apiKey: algoliaSettings.apiKey,
+        indexName: algoliaSettings.indexName,
+        searchFunction: function(helper) {
+            var searchInput = $('#algolia-search-input').find('input');
+            if (searchInput.val()) {
+                helper.search();
+            }
         }
     });
-
-    keyInput.addEventListener('input', search);
-    keyInput.addEventListener(even, search);
-
-}).call(this);
+    // Registering Widgets
+    [
+        instantsearch.widgets.searchBox({
+            container: '#algolia-search-input',
+            placeholder: algoliaSettings.labels.input_placeholder
+        }),
+        instantsearch.widgets.hits({
+            container: '#algolia-hits',
+            hitsPerPage: algoliaSettings.hits.per_page || 10,
+            templates: {
+                item: function(data) {
+                    return (
+                        '<a href="' + CONFIG.root + data.slug + '" class="algolia-hit-item-link">' +
+                        data._highlightResult.title.value +
+                        '</a>'
+                    );
+                },
+                empty: function(data) {
+                    return (
+                        '<div id="algolia-hits-empty">' +
+                        algoliaSettings.labels.hits_empty.replace(/\$\{query}/, data.query) +
+                        '</div>'
+                    );
+                }
+            },
+            cssClasses: {
+                item: 'algolia-hit-item'
+            }
+        }),
+        instantsearch.widgets.stats({
+            container: '#algolia-stats',
+            templates: {
+                body: function(data) {
+                    var stats = algoliaSettings.labels.hits_stats
+                        .replace(/\$\{hits}/, data.nbHits)
+                        .replace(/\$\{time}/, data.processingTimeMS);
+                    return (
+                        stats +
+                        '<span class="algolia-powered">' +
+                        '  <img src="' + CONFIG.root + 'images/algolia_logo.svg" alt="Algolia" />' +
+                        '</span>' +
+                        '<hr />'
+                    );
+                }
+            }
+        }),
+        instantsearch.widgets.pagination({
+            container: '#algolia-pagination',
+            scrollTo: false,
+            showFirstLast: false,
+            labels: {
+                first: '<i class="fa fa-angle-double-left"></i>',
+                last: '<i class="fa fa-angle-double-right"></i>',
+                previous: '<i class="fa fa-angle-left"></i>',
+                next: '<i class="fa fa-angle-right"></i>'
+            },
+            cssClasses: {
+                root: 'pagination',
+                item: 'pagination-item',
+                link: 'page-number',
+                active: 'current',
+                disabled: 'disabled-item'
+            }
+        })
+    ].forEach(search.addWidget, search);
+    search.start();
+    $('.popup-trigger').on('click', function(e) {
+        e.stopPropagation();
+        $('body').append('<div class="popoverlay">').css('overflow', 'hidden');
+        $('.popoverlay').fadeIn(300);
+        $('.popup').fadeIn(300);
+        $('#algolia-search-input').find('input').focus();
+    });
+    $('.popup-btn-close').click(function() {
+        $('.popoverlay').fadeOut(300);
+        $('.popup').fadeOut(300);
+        $('.popoverlay').remove();
+        $('body').css('overflow', '');
+    });
+});
